@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Inscrição confirmada | Oficina de Formação de Leitores</title>
+
+<!-- ══ Meta Pixel ══ -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','3411643265777442');
+fbq('track','PageView');
+fbq('track','Purchase',{value:7.00,currency:'BRL',content_name:'Oficina de Formação de Leitores'});
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=3411643265777442&ev=PageView&noscript=1" alt=""/></noscript>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600&family=Lora:ital,wght@0,400;1,400&family=Montserrat:wght@400;500;600;700&family=Niconne&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --primary:#5E3A1E; --primary-deep:#3D220E;
+  --action:#A05C3A; --gold:#D4AF37; --sand:#F4ECD8;
+  --muted:#9C8872; --ink:#2A1B0F;
+  --f-logo:'Filmotype LaCrosse','Niconne','Playfair Display',cursive;
+  --f-display:'Playfair Display',Georgia,serif;
+  --f-body:'Lora',Georgia,serif;
+  --f-ui:'Montserrat',sans-serif;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{overflow-x:hidden}
+body{
+  min-height:100vh;
+  background:linear-gradient(150deg,var(--primary) 0%,var(--primary-deep) 62%,#2A1B0F 100%);
+  color:var(--sand);font-family:var(--f-body);
+  display:flex;align-items:center;justify-content:center;
+  padding:40px 24px;position:relative;overflow-x:hidden;
+}
+body::before{
+  content:'❦';position:fixed;right:-60px;bottom:-120px;
+  font-size:380px;line-height:1;color:rgba(212,175,55,.05);pointer-events:none;
+}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+
+.card{width:100%;max-width:620px;text-align:center;position:relative;z-index:1}
+
+.logo{font-family:var(--f-logo);font-size:42px;line-height:1;color:var(--sand)}
+.logo-sub{
+  font-family:var(--f-ui);font-size:9px;font-weight:500;letter-spacing:.3em;
+  text-transform:uppercase;color:rgba(212,175,55,.75);margin-top:4px;
+}
+
+.selo{
+  width:48px;height:48px;margin:32px auto 24px;
+  border:1px solid rgba(212,175,55,.5);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+}
+.selo svg{width:19px;height:19px;stroke:var(--gold);stroke-width:2.2;fill:none;
+  stroke-linecap:round;stroke-linejoin:round}
+
+.eyebrow{
+  font-family:var(--f-ui);font-size:11px;font-weight:600;
+  letter-spacing:.26em;text-transform:uppercase;color:var(--gold);
+}
+h1{
+  font-family:var(--f-display);font-weight:500;
+  font-size:clamp(31px,4.6vw,44px);line-height:1.1;letter-spacing:-.015em;
+  color:#fff;margin:14px 0 8px;
+}
+h1 em{font-style:italic;color:var(--gold)}
+
+.quando{
+  font-family:var(--f-ui);font-size:12px;letter-spacing:.16em;text-transform:uppercase;
+  color:rgba(244,236,216,.55);margin-bottom:24px;
+}
+
+.recado{
+  font-size:17px;line-height:1.72;color:rgba(244,236,216,.82);
+  max-width:34em;margin:0 auto 14px;
+}
+.recado strong{color:#fff;font-weight:500;box-shadow:inset 0 -.42em 0 rgba(212,175,55,.25)}
+.recado-sub{font-size:15px;line-height:1.7;color:rgba(244,236,216,.55);max-width:32em;margin:0 auto 30px}
+
+.btn{
+  position:relative;overflow:hidden;
+  display:inline-flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;
+  width:100%;max-width:420px;text-decoration:none;cursor:pointer;
+  background:var(--action);color:#FFF8EE;font-family:var(--f-ui);
+  padding:19px 32px;border:1px solid rgba(212,175,55,.5);
+  transition:background .25s,transform .25s,box-shadow .25s;
+}
+.btn strong{font-size:15px;font-weight:700;letter-spacing:.09em;text-transform:uppercase}
+.btn span{font-size:10px;font-weight:500;letter-spacing:.17em;text-transform:uppercase;opacity:.78}
+.btn:hover{background:#8C4E30;transform:translateY(-2px);box-shadow:0 8px 22px rgba(0,0,0,.24)}
+.btn::after{
+  content:'';position:absolute;top:0;bottom:0;left:0;width:34%;
+  background:linear-gradient(100deg,transparent,rgba(212,175,55,.45) 45%,rgba(255,248,238,.3) 55%,transparent);
+  transform:translateX(-160%) skewX(-16deg);
+  animation:brilho 5s cubic-bezier(.5,0,.35,1) infinite;pointer-events:none;
+}
+@keyframes brilho{0%,62%{transform:translateX(-160%) skewX(-16deg)}100%{transform:translateX(420%) skewX(-16deg)}}
+.btn strong,.btn span{position:relative;z-index:1}
+
+/* contagem regressiva */
+.conta{max-width:420px;margin:16px auto 0}
+.conta-trilho{height:1px;background:rgba(244,236,216,.16);position:relative;overflow:hidden}
+.conta-fita{position:absolute;inset:0 auto 0 0;width:0;background:var(--gold)}
+.conta-fita.correndo{width:100%;transition:width 10s linear}
+.conta-txt{
+  font-family:var(--f-ui);font-size:10px;letter-spacing:.16em;text-transform:uppercase;
+  color:rgba(244,236,216,.45);margin-top:12px;
+}
+.conta-txt b{color:var(--gold);font-weight:600}
+
+.rodape{
+  margin-top:34px;padding-top:20px;border-top:1px solid rgba(212,175,55,.16);
+  font-family:var(--f-ui);font-size:11px;letter-spacing:.1em;line-height:2;
+  color:rgba(244,236,216,.4);
+}
+.rodape a{color:rgba(212,175,55,.8);text-decoration:none;border-bottom:1px solid rgba(212,175,55,.3)}
+.rodape a:hover{color:var(--gold)}
+
+@media(max-width:600px){
+  body{padding:30px 20px}
+  .logo{font-size:32px}
+  .selo{margin:24px auto 20px}
+  .recado{font-size:16px}
+  .rodape{margin-top:28px}
+}
+@media(prefers-reduced-motion:reduce){
+  *{transition-duration:.01ms!important;animation-duration:.01ms!important}
+  .conta-fita.correndo{transition:none;width:100%}
+}
+</style>
+</head>
+<body>
+
+<main class="card">
+
+  <div class="logo">Prof. Kemily</div>
+  <div class="logo-sub">Literatura · Educação Clássica</div>
+
+  <div class="selo" aria-hidden="true">
+    <svg viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5"/></svg>
+  </div>
+
+  <p class="eyebrow">Inscrição confirmada</p>
+  <h1>Sua vaga está <em>garantida.</em></h1>
+  <p class="quando">Oficina de Formação de Leitores · 11 de agosto, às 20h</p>
+
+  <p class="recado">Falta um passo, e ele é importante: <strong>entre no grupo de WhatsApp da turma.</strong></p>
+  <p class="recado-sub">É por lá que eu envio o link da aula no dia, os lembretes e o material de apoio. Quem não estiver no grupo não recebe o acesso.</p>
+
+  <a class="btn" id="btn-grupo" href="https://chat.whatsapp.com/H64iTWYQC6vK99kgf5w2h2">
+    <strong>Entrar no grupo do WhatsApp</strong>
+    <span>Turma de 11 de agosto</span>
+  </a>
+
+  <div class="conta">
+    <div class="conta-trilho"><div class="conta-fita" id="fita"></div></div>
+    <p class="conta-txt" id="conta-txt">Levamos você até lá em <b id="segundos">10</b> segundos</p>
+  </div>
+
+  <p class="rodape">
+    Alguma dúvida? <a href="https://wa.me/5524998519870?text=Ol%C3%A1%21%20Acabei%20de%20me%20inscrever%20na%20Oficina%20de%20Forma%C3%A7%C3%A3o%20de%20Leitores.">Fale com a equipe</a><br>
+    Prof. Kemily · Literatura &amp; Educação Clássica
+  </p>
+
+</main>
+
+<script>
+(function(){
+  var GRUPO = document.getElementById('btn-grupo').href;
+  var TOTAL = 10;
+  var fita  = document.getElementById('fita');
+  var seg   = document.getElementById('segundos');
+  var txt   = document.getElementById('conta-txt');
+  var restam = TOTAL, timer, tick;
+
+  function parar(){ clearInterval(tick); clearTimeout(timer);
+    txt.textContent = 'Se o WhatsApp não abrir, toque no botão acima'; }
+
+  // se a pessoa clicar no botão, cancela o redirecionamento
+  document.getElementById('btn-grupo').addEventListener('click', parar);
+
+  requestAnimationFrame(function(){ fita.classList.add('correndo'); });
+
+  tick = setInterval(function(){
+    restam--;
+    if (restam <= 0){ clearInterval(tick); return; }
+    seg.textContent = restam;
+  }, 1000);
+
+  timer = setTimeout(function(){
+    clearInterval(tick);
+    txt.textContent = 'Se o WhatsApp não abrir, toque no botão acima';
+    window.location.href = GRUPO;
+  }, TOTAL * 1000);
+})();
+</script>
+
+</body>
+</html>
