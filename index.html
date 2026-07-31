@@ -113,6 +113,24 @@ a{color:inherit}
 .btn-lg{width:100%;max-width:520px;padding:22px 32px}
 .btn-lg strong{font-size:16px}
 
+/* ═════════ BARRA DE PROGRESSO — LOTE ═════════ */
+.lote-progress{margin-top:20px;max-width:420px}
+.lote-progress-top{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:8px}
+.lote-progress-label{font-family:var(--f-ui);font-size:11px;font-weight:500;letter-spacing:.04em;color:rgba(244,236,216,.68)}
+.lote-progress-label b{color:var(--gold);font-weight:700;font-size:13px;letter-spacing:0}
+.lote-progress-track{width:100%;height:6px;border-radius:4px;background:rgba(244,236,216,.14);overflow:hidden;border:1px solid rgba(212,175,55,.18)}
+.lote-progress-fill{height:100%;border-radius:4px;background:linear-gradient(90deg,#B8862A,var(--gold) 60%,#F0D77A);box-shadow:0 0 10px rgba(212,175,55,.5);position:relative}
+.lote-progress-fill::after{
+content:'';position:absolute;inset:0;
+background:linear-gradient(100deg,transparent,rgba(255,255,255,.45) 50%,transparent);
+transform:translateX(-160%);animation:progresso-brilho 3.2s ease-in-out infinite;
+}
+@keyframes progresso-brilho{
+0%,70%{transform:translateX(-160%)}
+100%{transform:translateX(160%)}
+}
+.price .lote-progress{max-width:100%;margin-top:0;margin-bottom:28px}
+  
 /* ═════════ 1. HERÓI ═════════ */
 .hero{
   position:relative;overflow:hidden;
@@ -329,6 +347,7 @@ h1 em{font-style:italic;color:var(--gold)}
   .item{gap:14px}
   .item-mark{width:22px}
   .item-body b{font-size:19px}
+  .lote-progress{max-width:100%}
 }
 
 /* telas baixas — comprime o herói para o botão caber na dobra */
@@ -393,6 +412,15 @@ h1 em{font-style:italic;color:var(--gold)}
         </a>
       </div>
 
+<div class="lote-progress">
+<div class="lote-progress-top">
+<span class="lote-progress-label"><b>91%</b> das vagas do 1º lote já garantidas</span>
+</div>
+<div class="lote-progress-track">
+<div class="lote-progress-fill" style="width:91%"></div>
+</div>
+</div>
+    
       <div class="hero-tags">
         <span class="tag">Para pais, mães e professores de crianças de 0 a 12 anos</span>
       </div>
