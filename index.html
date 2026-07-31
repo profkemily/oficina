@@ -511,6 +511,24 @@ h1 em{font-style:italic;color:var(--gold)}
   check();
 })();
 </script>
+<script>
+(function(){
+  var params = new URLSearchParams(window.location.search);
+  var utmKeys = ['utm_source','utm_medium','utm_campaign','utm_content','utm_term'];
+  var utms = {};
+  utmKeys.forEach(function(k){
+    if (params.has(k)) utms[k] = params.get(k);
+  });
+  if (Object.keys(utms).length === 0) return; // sem UTM na URL, não mexe em nada
 
+  document.querySelectorAll('a[href*="pay.hotmart.com"]').forEach(function(a){
+    var url = new URL(a.href);
+    Object.keys(utms).forEach(function(k){
+      url.searchParams.set(k, utms[k]);
+    });
+    a.href = url.toString();
+  });
+})();
+</script>
 </body>
 </html>
