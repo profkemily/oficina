@@ -540,52 +540,37 @@ h1 em{font-style:italic;color:var(--gold)}
 })();
 </script>
 <script>
-(function() {
-  var baseUrl = 'https://pay.hotmart.com/E106922480J?checkoutMode=10&off=78h6jk77&offDiscount=SEGUNDOLOTE';
+document.addEventListener("DOMContentLoaded", () => {
+  const parametrosEntrada = new URLSearchParams(window.location.search);
 
-  // Lista de parâmetros que serão transportados da URL ou cookies
-  var queryParams = [
-    'utm_id', 'utm_campaign', 'utm_source', 'utm_term',
-    'utm_medium', 'utm_content', 'sck', 'xcod'
+  const parametrosPermitidos = [
+    "utm_source",
+    "utm_medium",
+    "utm_campaign",
+    "utm_content",
+    "utm_term",
+    "sck",
+    "src"
   ];
 
-  function getQueryParam(name) {
-    var match = (new RegExp('[?&]' + name + '=([^&]*)')).exec(window.location.search);
-    return match ? decodeURIComponent(match[1]) : null;
-  }
+  document
+    .querySelectorAll(
+      'a[href*="pay.hotmart.com"], a[href*="go.hotmart.com"]'
+    )
+    .forEach((botao) => {
+      const checkout = new URL(botao.href);
 
-  function getCookie(name) {
-    var match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
-    return match ? decodeURIComponent(match[2]) : null;
-  }
+      parametrosPermitidos.forEach((parametro) => {
+        const valor = parametrosEntrada.get(parametro);
 
-  function decorateUrl(url) {
-    var params = [];
+        if (valor) {
+          checkout.searchParams.set(parametro, valor);
+        }
+      });
 
-    // Adiciona os parâmetros da URL
-    queryParams.forEach(function(param) {
-      var val = getQueryParam(param);
-      if (param === 'xcod' && !val) val = getCookie('ck_user-id');
-      if (val) params.push(param + '=' + encodeURIComponent(val));
+      botao.href = checkout.toString();
     });
-
-    // Captura os campos do formulário do Great Pages
-    var nameField = document.querySelector('input[name="insira-seu-nome-completo"]');
-    var emailField = document.querySelector('input[name="insira-seu-e-mail"]');
-    var phoneField = document.querySelector('input[name="insira-seu-whatsapp-com-ddd"]');
-
-    if (nameField && nameField.value) params.push('name=' + encodeURIComponent(nameField.value));
-    if (emailField && emailField.value) params.push('email=' + encodeURIComponent(emailField.value));
-    if (phoneField && phoneField.value) params.push('phoneac=' + encodeURIComponent(phoneField.value));
-
-    // Retorna a URL final decorada
-    return url + (url.indexOf('?') === -1 ? '?' : '&') + params.join('&');
-  }
-
-  // Monta a URL final e redireciona
-  var finalUrl = decorateUrl(baseUrl);
-  window.location.href = finalUrl;
-})();
+});
 </script>
 </body>
 </html>
