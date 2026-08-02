@@ -540,22 +540,51 @@ h1 em{font-style:italic;color:var(--gold)}
 })();
 </script>
 <script>
-(function(){
-  var params = new URLSearchParams(window.location.search);
-  var utmKeys = ['utm_source','utm_medium','utm_campaign','utm_content','utm_term'];
-  var utms = {};
-  utmKeys.forEach(function(k){
-    if (params.has(k)) utms[k] = params.get(k);
-  });
-  if (Object.keys(utms).length === 0) return; // sem UTM na URL, não mexe em nada
+(function() {
+  var baseUrl = 'https://pay.hotmart.com/E106922480J?checkoutMode=10&off=78h6jk77&offDiscount=SEGUNDOLOTE';
 
-  document.querySelectorAll('a[href*="pay.hotmart.com"]').forEach(function(a){
-    var url = new URL(a.href);
-    Object.keys(utms).forEach(function(k){
-      url.searchParams.set(k, utms[k]);
+  // Lista de parâmetros que serão transportados da URL ou cookies
+  var queryParams = [
+    'utm_id', 'utm_campaign', 'utm_source', 'utm_term',
+    'utm_medium', 'utm_content', 'sck', 'xcod'
+  ];
+
+  function getQueryParam(name) {
+    var match = (new RegExp('[?&]' + name + '=([^&]*)')).exec(window.location.search);
+    return match ? decodeURIComponent(match[1]) : null;
+  }
+
+  function getCookie(name) {
+    var match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
+    return match ? decodeURIComponent(match[2]) : null;
+  }
+
+  function decorateUrl(url) {
+    var params = [];
+
+    // Adiciona os parâmetros da URL
+    queryParams.forEach(function(param) {
+      var val = getQueryParam(param);
+      if (param === 'xcod' && !val) val = getCookie('ck_user-id');
+      if (val) params.push(param + '=' + encodeURIComponent(val));
     });
-    a.href = url.toString();
-  });
+
+    // Captura os campos do formulário do Great Pages
+    var nameField = document.querySelector('input[name="insira-seu-nome-completo"]');
+    var emailField = document.querySelector('input[name="insira-seu-e-mail"]');
+    var phoneField = document.querySelector('input[name="insira-seu-whatsapp-com-ddd"]');
+
+    if (nameField && nameField.value) params.push('name=' + encodeURIComponent(nameField.value));
+    if (emailField && emailField.value) params.push('email=' + encodeURIComponent(emailField.value));
+    if (phoneField && phoneField.value) params.push('phoneac=' + encodeURIComponent(phoneField.value));
+
+    // Retorna a URL final decorada
+    return url + (url.indexOf('?') === -1 ? '?' : '&') + params.join('&');
+  }
+
+  // Monta a URL final e redireciona
+  var finalUrl = decorateUrl(baseUrl);
+  window.location.href = finalUrl;
 })();
 </script>
 </body>
